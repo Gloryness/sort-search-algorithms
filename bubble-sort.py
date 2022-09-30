@@ -12,7 +12,9 @@ def bubble_sort(array):
 
         changed = []
         for step in range(len(array)-1):
-            res = list(sorted([array[step], array[step+1]]))
+            res = [array[step], array[step+1]]
+            if res[0] > res[1]:
+                res[0], res[1] = res[1], res[0]
             changed.append(bool(res != [array[step], array[step+1]]))
 
             original = array.copy()
