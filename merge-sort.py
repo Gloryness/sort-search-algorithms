@@ -16,24 +16,26 @@ def merge_sort(array):
     left = merge_sort(array[:middle])
     right = merge_sort(array[middle:])
 
-    print(f"\nOriginal: {array}\nLeft: {left}\nRight: {right}\n")
+    # print(f"\nOriginal: {array}\nLeft: {left}\nRight: {right}\n")
 
     a = b = c = 0
 
+    # Merging 2 sorted arrays into one sorted array by keeping track of the lowest number of the 2 arrays
+
     while a < len(left) and b < len(right):
-        if left[a] <= right[b]:
-            array[c] = left[a]
-            a += 1
-        else:
+        if left[a] >= right[b]:
             array[c] = right[b]
             b += 1
+        else:
+            array[c] = left[a]
+            a += 1
         c += 1
-    
+
     while a < len(left):
         array[c] = left[a]
         a += 1
         c += 1
-    
+
     while b < len(right):
         array[c] = right[b]
         b += 1
